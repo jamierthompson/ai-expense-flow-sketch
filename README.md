@@ -4,6 +4,8 @@ A working, deliberately rough wireframe of an AI-assisted expense-categorization
 
 The answer is a sketch you can click through, not a static mockup.
 
+**Live demo:** [ai-expense-flow-sketch.vercel.app](https://ai-expense-flow-sketch.vercel.app)
+
 ## What this is
 
 An exploration of the design problem: **an AI agent does something with your money; motion and transparency are what make it OK to let it run.**
