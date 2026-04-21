@@ -58,6 +58,8 @@ Then open [http://localhost:3000](http://localhost:3000).
 Inside [`docs/`](./docs/):
 
 - [`user-flow.md`](./docs/user-flow.md) — full prose walkthrough of the interaction model, every state, every reversal.
+- [`decisions.md`](./docs/decisions.md) — decision log (ADR-style). Each major design call with context, options considered, decision, and consequence.
+- [`open-questions.md`](./docs/open-questions.md) — what the sketch deliberately didn't answer. TODO list for the production build.
 - [`ramp-portfolio-plan-v2.md`](./docs/ramp-portfolio-plan-v2.md) — the revised production build plan informed by the sketch.
 - [`ramp-portfolio-plan-original.md`](./docs/ramp-portfolio-plan-original.md) — the original plan before the sketching session (preserved as audit trail).
 - [`process-summary.md`](./docs/process-summary.md) — chronological record of the design conversation that produced this sketch.
