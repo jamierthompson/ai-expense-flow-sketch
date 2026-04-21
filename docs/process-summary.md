@@ -34,7 +34,7 @@ The throw-away framing was important: the goal was to answer "does the flow shap
 
 ## Phase 2 — Activity feed and results: separate or combined?
 
-User thought aloud: _"Should the Agent Activity Feed and Results be combined somehow? Or should the line items in Agent Activity Feed expand — show reasoning?"_
+Jamie thought aloud: _"Should the Agent Activity Feed and Results be combined somehow? Or should the line items in Agent Activity Feed expand — show reasoning?"_
 
 **Analysis:** The original plan's description of the activity feed named "expand any step to see what happened underneath" as a core behavior (analogous to what Claude Code does in a terminal). That directly maps to **expandable lines with reasoning**.
 
@@ -48,7 +48,7 @@ User thought aloud: _"Should the Agent Activity Feed and Results be combined som
 
 ## Phase 3 — Collapsing the action set: Reject → Reclassify
 
-User observation: _"Rejecting currently dims the line item, but then what? Doesn't the transaction still need to be classified? Is 'reject' needed? What happens on 'reclassify'?"_
+Jamie's observation: _"Rejecting currently dims the line item, but then what? Doesn't the transaction still need to be classified? Is 'reject' needed? What happens on 'reclassify'?"_
 
 **Analysis:** Reject with no replacement is limbo. The transaction still needs a category. Saying "this isn't Office Supplies" is saying "give me a different category." That's Reclassify.
 
@@ -64,7 +64,7 @@ User observation: _"Rejecting currently dims the line item, but then what? Doesn
 
 ## Phase 4 — The teaching moment
 
-User: _"When the AI gets it wrong, how could we add a teaching moment that simulates feeding back into the model?"_
+Jamie: _"When the AI gets it wrong, how could we add a teaching moment that simulates feeding back into the model?"_
 
 **Analysis:** The plan said `generateObject` for reclassify but treated it as one-shot. A richer story is that the correction can teach the agent, which is directly on-thesis: "motion is the honesty signal for AI acting on your money" extends naturally to "and when it's wrong, you can see it learn."
 
@@ -81,7 +81,7 @@ User: _"When the AI gets it wrong, how could we add a teaching moment that simul
 
 ## Phase 5 — Reclassify as diff, not replacement
 
-User observation: _"For reclassify, let's try this: don't remove the old category, instead say something like 'I thought it was X because Y. What is this actually?' Then after the user selects another category there needs to be feedback somehow like 'Got it. Reclassified as Z.'"_
+Jamie's observation: _"For reclassify, let's try this: don't remove the old category, instead say something like 'I thought it was X because Y. What is this actually?' Then after the user selects another category there needs to be feedback somehow like 'Got it. Reclassified as Z.'"_
 
 Also: _"Do we really need the 'Remember' checkbox?"_
 
@@ -107,7 +107,7 @@ And critically: _"I also don't think motion can carry the load — motion off ne
 
 ## Phase 6 — The review bucket as motion destination
 
-User: _"The 'Routed to review bucket' presents an opportunity to use motion to add it to a bucket icon. You think?"_
+Jamie: _"The 'Routed to review bucket' presents an opportunity to use motion to add it to a bucket icon. You think?"_
 
 **Analysis:** Good instinct. A bucket gives flag actions a real destination, a visible count that grows, and a natural motion beat ("item flies to bucket") — while still reading clean without motion because the number changes.
 
@@ -117,13 +117,13 @@ User: _"The 'Routed to review bucket' presents an opportunity to use motion to a
 - Click to expand → inline list of flagged items with per-item `unflag`.
 - **Flagged rows stay in place** (compressed to `⚑ Ready for review`), bucket is a summary + motion destination, not a relocation. Preserves undo-in-context.
 
-User flagged that the flagged row's annotation `[routed to review bucket]` was doubling as state text — violating the motion-off rule we'd just locked in. Fix: state label becomes `⚑ Ready for review` (describes the state, not just the past action); motion annotation moved to a separate line explicitly marked as a wireframe note.
+Jamie flagged that the flagged row's annotation `[routed to review bucket]` was doubling as state text — violating the motion-off rule we'd just locked in. Fix: state label becomes `⚑ Ready for review` (describes the state, not just the past action); motion annotation moved to a separate line explicitly marked as a wireframe note.
 
 ---
 
 ## Phase 7 — Cutting submit/cancel ceremony
 
-User: _"Do we actually need 'submit' and 'cancel' buttons in the traditional sense? Or could selecting an option automatically 'submit' with clear cancel/undo options?"_
+Jamie: _"Do we actually need 'submit' and 'cancel' buttons in the traditional sense? Or could selecting an option automatically 'submit' with clear cancel/undo options?"_
 
 **Analysis:** Chip click is already a commitment signal; the submit button is a double-tap. Undo is universal, so the "guard me from myself" argument is weak. This is triage, not paperwork.
 
@@ -133,7 +133,7 @@ User: _"Do we actually need 'submit' and 'cancel' buttons in the traditional sen
 - Chip + text together should still work — clicking a chip while text is in the input submits both as context.
 - Cancel still needs to exist but doesn't need to be a button — a text link + Escape key suffices.
 
-User added: _"We should probably have a visual commit button (as well as Enter key). Something like a checkmark icon on the far-right side of the input."_
+Jamie added: _"We should probably have a visual commit button (as well as Enter key). Something like a checkmark icon on the far-right side of the input."_
 
 **Decision:**
 
@@ -146,7 +146,7 @@ User added: _"We should probably have a visual commit button (as well as Enter k
 
 ## Phase 8 — Handling the "either/or vs both" question
 
-User asked if text input and chips should be either/or, noting that currently typing random text silently falls to Uncategorized.
+Jamie asked if text input and chips should be either/or, noting that currently typing random text silently falls to Uncategorized.
 
 **Analysis:** Both should work — they do different things.
 
@@ -154,13 +154,13 @@ User asked if text input and chips should be either/or, noting that currently ty
 - **Text alone** = let the model figure it out (`generateObject` reads text, infers category)
 - **Chip + text** = user constrains category; text becomes reasoning context
 
-The silent fallback to Uncategorized was the real bug — in the real build, text goes to the model, not to a regex. User observation led to the next phase.
+The silent fallback to Uncategorized was the real bug — in the real build, text goes to the model, not to a regex. Jamie's observation led to the next phase.
 
 ---
 
 ## Phase 9 — Focused layouts for committed states
 
-User: _"Now let's remove '✓ Got it. Reclassified as Uncategorized. undo' and the accept, reclassify, and flag buttons when the 'Couldn't map ... with confidence.' message is displayed. Right now, there's too many options shown at once."_
+Jamie: _"Now let's remove '✓ Got it. Reclassified as Uncategorized. undo' and the accept, reclassify, and flag buttons when the 'Couldn't map ... with confidence.' message is displayed. Right now, there's too many options shown at once."_
 
 **Analysis:** Strong simplification instinct. The uncertain reclassify state shouldn't look like a successful commit with warnings layered on. The commit "didn't really succeed," so the UI shouldn't pretend it did.
 
@@ -168,7 +168,7 @@ User: _"Now let's remove '✓ Got it. Reclassified as Uncategorized. undo' and t
 
 - **Uncertain reclassify** — focused block: `⚠ Low confidence (0.40)` + _"I couldn't map your note..."_ + two actions: `Flag as "No fitting category"` | `undo`. No confirmation line, no action buttons.
 
-User followed up: _"Same thing with the '✓ Got it. Reclassified as Software.' state. Remove the accept, reclassify, and flag buttons."_
+Jamie followed up: _"Same thing with the '✓ Got it. Reclassified as Software.' state. Remove the accept, reclassify, and flag buttons."_
 
 - **Confident reclassify** — dedicated layout with the `✓ Got it.` confirmation + `undo`, the category + reasoning line, and the teaching commitment line (`I'll remember…` with `just this one`). No redundant action buttons.
 

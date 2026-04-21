@@ -104,7 +104,7 @@ Use this doc (not the process-summary) when you need a sharp, scannable version 
 
 ## 7. Activity feed becomes a full audit trail, not just agent thinking
 
-**Context.** Originally the feed logged agent activity only. User observation: _"I think that all actions (AI plus user) need to be tracked though in the log so there's an audit trail."_
+**Context.** Originally the feed logged agent activity only. Jamie's observation: _"I think that all actions (AI plus user) need to be tracked though in the log so there's an audit trail."_
 
 **Options.**
 
@@ -136,7 +136,7 @@ Use this doc (not the process-summary) when you need a sharp, scannable version 
 
 ## 9. Motion-off readability as a load-bearing rule
 
-**Context.** User observation: _"We need to turn off motion in the real project, so the result of each action should be obvious regardless."_ This was called out mid-session, in response to the original commit confirmation being a quiet `↻` glyph.
+**Context.** Jamie's observation: _"We need to turn off motion in the real project, so the result of each action should be obvious regardless."_ This was called out mid-session, in response to the original commit confirmation being a quiet `↻` glyph.
 
 **Options.**
 
@@ -151,7 +151,7 @@ Use this doc (not the process-summary) when you need a sharp, scannable version 
 
 ## 10. Add a review bucket as the flag destination
 
-**Context.** Flag action left the row dimmed in place with no visible destination. User suggestion: _"Presents an opportunity to use motion to add it to a bucket icon."_
+**Context.** Flag action left the row dimmed in place with no visible destination. Jamie's suggestion: _"Presents an opportunity to use motion to add it to a bucket icon."_
 
 **Options.**
 
@@ -167,7 +167,7 @@ Use this doc (not the process-summary) when you need a sharp, scannable version 
 
 ## 11. No submit ceremony — chip click is commit; Enter is commit; universal undo
 
-**Context.** Initial panels had submit/cancel buttons. User observation: _"Do we actually need 'submit' and 'cancel' buttons? Could selecting an option automatically 'submit'?"_
+**Context.** Initial panels had submit/cancel buttons. Jamie's observation: _"Do we actually need 'submit' and 'cancel' buttons? Could selecting an option automatically 'submit'?"_
 
 **Options.**
 
@@ -183,7 +183,7 @@ Use this doc (not the process-summary) when you need a sharp, scannable version 
 
 ## 12. Binary audit trail — every action has a matching inverse verb
 
-**Context.** User: _"Can you make the top-line message in the activity log binary? Change 'You undid ...' to 'You unclassified ...'. I'm getting confused trying to make sure we've covered all edge cases, so let's make it explicit for now."_
+**Context.** Jamie: _"Can you make the top-line message in the activity log binary? Change 'You undid ...' to 'You unclassified ...'. I'm getting confused trying to make sure we've covered all edge cases, so let's make it explicit for now."_
 
 **Options.**
 
@@ -199,7 +199,7 @@ Use this doc (not the process-summary) when you need a sharp, scannable version 
 
 ## 13. Handle model uncertainty with a dedicated row layout + one-click flag
 
-**Context.** User observation: the current fallback to "Uncategorized" was silent when the model couldn't confidently map a user's reclassify text. Asked about adding a category on the fly, which led to examining how this product class handles unknowns.
+**Context.** Jamie's observation: the current fallback to "Uncategorized" was silent when the model couldn't confidently map a user's reclassify text. Asked about adding a category on the fly, which led to examining how this product class handles unknowns.
 
 **Options.**
 
@@ -215,7 +215,7 @@ Use this doc (not the process-summary) when you need a sharp, scannable version 
 
 ## 14. Dedicated layouts per committed state
 
-**Context.** User feedback on the uncertain-reclassify state: _"There's too many options shown at once on the one line item."_ Then on the confident reclassify: _"Now let's remove the accept, reclassify, and flag buttons when ✓ Got it. Reclassified as Software. is shown."_
+**Context.** Jamie's feedback on the uncertain-reclassify state: _"There's too many options shown at once on the one line item."_ Then on the confident reclassify: _"Now let's remove the accept, reclassify, and flag buttons when ✓ Got it. Reclassified as Software. is shown."_
 
 **Options.**
 
